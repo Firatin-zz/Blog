@@ -1,0 +1,33 @@
+﻿<div class="col-md-6 col-sm-6 col-xs-12">
+    <!-- ~~~=| form START |=~~~ -->
+    <div class="contact-page-form">
+        <h2>Bize E-mail Gönderin</h2>
+        <div class="comments_form">
+
+            @using (Html.BeginForm())
+            {
+                @*if (ViewBag.Success != null && ViewBag.Success)
+                {
+                    <span>Mesaj gönderildi</span>
+                }
+                else
+                {
+                    <span>Başarısız</span>
+                }*@
+                @*@Html.Partial("/Views/Shared/Partial/FormMessages.cshtml")*@
+                <div class="contact_cc_name">
+                    @*<input type="text" name="NickName" value="" placeholder="NickName" />*@
+                    <input type="text" name="FullName" value="" placeholder="FullName" />
+                    <input type="email" name="Email" value="" placeholder="Email" />
+                    <input type="tel" name="Phone" value="" placeholder="Phone" />
+                    <textarea name="Message" placeholder="Mesaj"></textarea>
+
+                </div>
+                <textarea name="message" placeholder="Mesajınız Yazınız" rows="10" cols="30"></textarea>
+                <input name="submit" type="submit" value="Mesajı Gönder">
+
+            }
+        </div>
+    </div>
+    <!-- ~~~=| form END |=~~~ -->
+</div>

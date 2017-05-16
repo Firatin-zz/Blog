@@ -1,0 +1,60 @@
+﻿@model BlogApp.Models.ORM.Entity.Hakkimda
+@{
+    ViewBag.Title = "Iletisim";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<section class="contact_message_area">
+    <div class="container">
+        <div class="row">
+            @*<div class="col-md-6 col-sm-6 col-xs-12">
+                <!-- ~~~=| form START |=~~~ -->
+                <div class="contact-page-form">
+                    <h2>Bize E-mail Gönderin</h2>
+                    <div class="comments_form">
+                        <form action="contact_process.php" method="post">
+                            <div class="contact_cc_name">
+                                <input name="name" required="" type="text" placeholder="İsİm Soyİsİm*">
+                                <input name="email" required="" type="text" placeholder="E Maİl*">
+                                <input name="phone" required="" type="text" placeholder="Telefon*">
+                            </div>
+                            <textarea name="message" placeholder="Mesajınız Yazınız" rows="10" cols="30"></textarea>
+                            <input name="submit" type="submit" value="Mesajı Gönder">
+                        </form>
+                    </div>
+                </div>
+                <!-- ~~~=| form END |=~~~ -->
+            </div>*@
+            @Html.Action("Iletisim", "Iletisim")
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="contact_address">
+                    <h2>İLETİŞİM</h2>
+                    @*<p>
+                       @Html.Raw(Model.Bilgilerim)
+                    </p>*@
+                    <div class="visit_us_contact">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <div class="visit_img"><img alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" src="~/Content/images//map_ico.png"></div><div class="visit_text">
+                                       @Model.Adres
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="visit_img"><img alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" src="~/Content/images//ph_ico.png"></div><div class="visit_text">Telephone : @Model.Telefon</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <div class="visit_img"><img alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" src="~/Content/images//msg_ico.png"></div><div class="visit_text">E-mail : @Model.Email</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- ~~~=| Fashion area END |=~~~ -->
+        </div>
+    </div>
+</section>

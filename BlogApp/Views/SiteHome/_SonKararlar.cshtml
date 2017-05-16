@@ -1,0 +1,42 @@
+﻿@model List<BlogApp.Models.ORM.Entity.Kararlar>
+<section class="about_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="about_main">
+                    <div class="">
+                        <h3>Yargıtay Kararları</h3>
+                        @foreach (var item in Model)
+                        {
+                            <div class="author_desc">
+                                <div class="single_fs_news_left_text">
+                                    @*<img src="images/comment-pic3.png" alt="" />*@
+                                </div>
+                                <div class="single_comment_text">
+                                    <div class="sp_title">
+                                        <a href="/Kararlar/@BlogApp.Models.UrlNav.helper.ToSlug(item.Title)/@item.ID"><h4>@item.Title</h4></a>
+                                        <p>@item.Category.Name</p>
+                                    </div>
+                                    @*<p>@Html.Raw(item.Content)</p>*@
+
+                                    <p>
+                                        @if (item.Content.Length > 490)
+                                        {
+                                            Write(Html.Raw(item.Content.Substring(0, 490) + "..."));
+                                        }
+                                        else
+                                        {
+                                            Write(Html.Raw(item.Content));
+                                        }
+                                    </p>
+                                    <a href="/Kararlar/@BlogApp.Models.UrlNav.helper.ToSlug(item.Title)/@item.ID"><i class="fa fa-reply"></i>Detay</a>
+                                </div>
+                            </div><hr />
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

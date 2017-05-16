@@ -1,0 +1,116 @@
+﻿@model List<BlogApp.Areas.Admin.Models.BlogPostVM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Areas/Admin/Content/css/dataTables.bootstrap.js"></script>
+<script src="~/scripts/jquery.dataTables.min.js"></script>
+<script src="~/scripts/dataTables.bootstrap.min.js"></script>
+<link href="~/Areas/Admin/Content/css/dataTables.bootstrap.css" rel="stylesheet" />
+@*<script src="~/scripts/jquery-3.1.1.min.js"></script>*@
+@*<script src="~/scripts/custom/deleteRecordTable.js"></script>*@
+@*<script src="~/Scripts/custom/deleteRecordTable.js"></script>*@
+<section class="content-header">
+    <h1>
+        Makaleler
+        <small>Liste</small>
+    </h1>
+    @*<ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+    </ol>*@
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- /.box -->
+            <div class="box">
+                @*<div class="box-header">
+                    </div>*@
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example1" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                @*<th>No</th>*@
+                                <th>Kategori</th>
+                                <th>Başlık</th>
+                                <th>İşlem</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    @*<td>@item.ID</td>*@
+                                    <td>@item.CategoryName</td>
+                                    <td>@item.Title</td>
+                                    <td><a href="/Admin/BlogPost/UpdateBlogPost/@item.ID">Güncelle</a></td>
+
+                                    <td>
+                                        <i class="fa fa-fw fa-remove Post_Sil" style="cursor:pointer" onclick="Delete('/Admin/BlogPost/DeleteBlogPost/',@item.ID)" data-id="@item.ID"></i>
+                                        @*<input type="button" value="Sil" class="Post_Sil" data-id="@item.ID" />*@
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                @*<th>No</th>*@
+                                <th>Kategori</th>
+                                <th>Başlık</th>
+                                <th>İşlem</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<script>
+    $(document).on("click", ".Post_Sil", function () {
+        var deleteIslem = confirm("Silme işlemini onaylıyormusunuz?");
+        if (deleteIslem == true) {
+            var id = $(this).attr("data-id");
+            var deleteTR = $(this).closest("tr");
+
+            $.ajax({
+                url: '/Admin/BlogPost/DeleteBlogPost/' + id,
+                type: 'POST',
+                success: function (result) {
+                    if (result == "OK") {
+                        deleteTR.remove();
+                    } else {
+                        alert("Hata oluştu!");
+                    }
+                }
+            });
+        }
+
+    })
+</script>
+<script>
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+        });
+    });
+</script>

@@ -1,0 +1,47 @@
+﻿@model BlogApp.Models.ORM.Entity.Hakkimda
+<section class="about_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="about_main">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="doing_what">
+                                <h2>@Model.Title</h2>
+                                <p>
+                                    @if (Model.Bilgilerim.Length > 613)
+                                    {
+                                        Write(Html.Raw(Model.Bilgilerim.Substring(0, 613) + "..."));
+                                    }
+                                    else
+                                    {
+                                        Write(Html.Raw(Model.Bilgilerim));
+                                    }
+                                </p>
+                                <div class="read_more_about">
+                                    <a href="~/Hakkimda">Detay</a>
+                                    @*<a href="">Know More</a>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="about_slider">
+                                <div class="carousel">
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        <div>
+                                            <img alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" src="~/Areas/Admin/Content/img/BlogPost/@Model.ImagePath" width="100%" height="100%">
+                                        </div>
+                                    
+                                    </div>
+                                 
+                                </div>
+
+                            </div>
+                        </div>
+                    </div><hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

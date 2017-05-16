@@ -1,0 +1,53 @@
+﻿@model List<BlogApp.Models.ORM.Entity.BlogPost>
+@helper TitleBelirle(string title)
+{
+if (title.Length > 22)// ... buyuk olursa kayan yazı olucak
+{
+        <marquee>@title.Substring(0, title.Length)</marquee>
+}
+else
+{
+        @title
+}
+}
+
+@helper OzetBelirle(string ozet)
+{
+if (ozet.Length > 27)
+{
+    Write(ozet.Substring(0, 27) + "...");
+}
+else
+{
+    Write(ozet);
+}
+}
+<section class="our_authors_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="our_authors">
+                    @*<h3>Son Dilekçeler</h3>*@
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-md-3 col-sm-3 col-xs-11">
+                                <div class="single_author_about">
+                                    <div class="autor_img" style="width:100%; height:100%;">
+                                        <img alt="@item.Title,Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" src="~/Areas/Admin/Content/img/BlogPost/@item.ImagePath">
+                                    </div>
+                                    <div class="author_desc">
+                                        <div class="">
+                                            <a href="/Blog/@BlogApp.Models.UrlNav.helper.ToSlug(item.Title)/@item.ID">@OzetBelirle(item.Title)</a>
+                                            <p>@item.Category.Name</p>
+                                        </div>
+                                    </div>
+                                </div><br />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

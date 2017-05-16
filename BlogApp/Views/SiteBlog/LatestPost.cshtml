@@ -1,0 +1,22 @@
+﻿@model List<BlogApp.Models.ORM.Entity.BlogPost>
+<div class="follow_us_side">
+    <h2>Son Makaleler</h2>
+    <div class="all_news_right">
+        @foreach (var item in Model)
+        {
+            <div class="fs_news_right">
+                <div class="single_fs_news_img">
+                    <img alt="@item.Title,Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" src="~/Areas/Admin/Content/img/BlogPost/@item.ImagePath" width="80">
+                </div>
+                <div class="single_fs_news_right_text">
+                    <h4><a href="/Blog/@BlogApp.Models.UrlNav.helper.ToSlug(item.Title)/@item.ID">@item.Title</a></h4>
+                    <p>
+                        <a href="/Blog/@BlogApp.Models.UrlNav.helper.ToSlug(item.Title)/@item.ID">Detay</a>
+                        <i class="fa fa-clock-o"></i>
+                    </p>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>

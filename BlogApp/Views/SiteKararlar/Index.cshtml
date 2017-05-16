@@ -1,0 +1,39 @@
+﻿@model BlogApp.Models.VM.SiteKararlarVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<section class="main_news_wrapper cc_single_post_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-9 col-xs-12">
+                <!-- ~~~=| Fashion area START |=~~~ -->
+                <div class="cc_single_post">
+                    <div class="bsp_img">
+                        <img src="~/Areas/Admin/Content/img/yargıtay.png" alt="@Model.Title,Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" width="845" height="268" />
+                    </div>
+                    <div class="sp_details">
+                        <a>@Model.CategoryName</a>
+                        <h2>@Model.Title</h2>
+                      
+                        <div class="post_text">
+                            <p>
+                                @Html.Raw(Model.Content) @*post içeriğimiz ck editörden HTML düzenlemeleri ile gelebildiği için html.raw ile yazdırmamız gerekir.*@
+                            </p>
+                        </div>
+                    
+                    </div>
+                </div>
+                <!-- ~~~=| Fashion area END |=~~~ -->
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-12">
+                <div class="home_sidebar">
+                    <div class="purchase_sidebar">
+                    </div>
+                    @Html.Action("LatestPost", "SiteBlog")
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,19 @@
+﻿@model BlogApp.Areas.Admin.Models.CategoryVM
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Kategori Ekleme
+        <small>Preview</small>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-7">
+            @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormMessagesPart.cshtml")
+            @Html.Partial("Partial/CategoryForm")
+        </div>
+    </div>
+</section>

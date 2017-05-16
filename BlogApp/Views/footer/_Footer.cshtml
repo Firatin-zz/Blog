@@ -1,0 +1,35 @@
+﻿<footer class="footer_area">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer_top_box">
+                        <div class="row">
+
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <div class="footer_top_left">
+                                    <img src="~/Content/images/sevgiLOGO.png" alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" />
+                                </div>
+                            </div>
+
+                            @{ Html.RenderAction("_iletisim", "footer");
+                                Html.RenderAction("_Category", "footer");
+                            }  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="footer_bottom_box">
+                        <p> &copy; Sevgi Yılmaz |2015|</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,15 @@
+﻿@model List<BlogApp.Models.ORM.Entity.Category>
+<div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="footer_top_right">
+        <div class="ftr_tags">
+            <h4>Hukuk Çözümlerimiz</h4>
+            <ul id="tag">
+                @foreach (var item in Model)
+                {
+                    <li><a href="/HukukiCozumler/@BlogApp.Models.UrlNav.helper.ToSlug(item.Name)/@item.ID">@item.Name</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

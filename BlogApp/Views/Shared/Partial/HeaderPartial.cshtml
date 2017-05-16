@@ -1,0 +1,121 @@
+﻿@model List<BlogApp.Models.ORM.Entity.Category>
+<body>
+    <link href="~/scripts/Site/responsive.css" rel="stylesheet" />
+    <!-- ~~~=| Header START |=~~~ -->
+    <header class="header_area">
+
+        <div class="header_logo_area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="logo"> <a href="/"><img src="~/Content/images/sevgiLOGO.png" alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" /></a> </div>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="header_add"> <a href="#"><img src="~/Content/images/timthumb.jpg" alt="Sevgi Yilmaz, iş hukuku, ceza hukuku, ticaret hukuku, gayrimenkul hukuku, icra, icra hukuku, danıştay kararları, yargıtay kararları" /></a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--MENÜ-->
+        <div class="mainnav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <nav class="main_nav_box">
+                            <ul id="nav">
+                                <li class="nav_news"><a href="/">Anasayfa</a></li>
+                                <li class="nav_lifeguide">
+                                    <a href="#">Hukukİ Çözümler</a>
+                                    <div class="sub_menu sub_menu_p single_mega">
+                                        <ul>
+                                            @foreach (var item in Model)
+                                            {
+
+
+                                                <li><a href="/HukukiCozumler/@BlogApp.Models.UrlNav.helper.ToSlug(item.Name)/@item.ID"><span>@item.Name</span></a></li>
+
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav_gadgets">
+                                    <a href="#">Yargıtay Kararları</a>
+                                    <div class="sub_menu sub_menu_p single_mega">
+                                        <ul>
+                                            @foreach (var item in Model)
+                                            {
+                                                <li><a href="/YargitayKararlari/@BlogApp.Models.UrlNav.helper.ToSlug(item.Name)/@item.ID"><span>@item.Name</span></a></li>
+
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav_video"><a href="~/hakkimda">Hakkımda</a></li>
+                                <li class="nav_features"><a href="/iletisim">İLETİŞİM</a></li>
+
+                            </ul>
+                        </nav>
+
+                        <!-- ~~~=| Mobile Navigation END |=~~~ -->
+                        <div class="only-for-mobile">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <ul class="ofm">
+                                    <li class="m_nav"><i class="fa fa-bars"></i> Menu</li>
+                                </ul>
+                                <!-- MOBILE MENU -->
+                                <div class="mobi-menu">
+                                    <div id='cssmenu'>
+                                        <ul>
+                                            <li class="nav_news"><a href="/">Anasayfa</a></li>
+                                            <li class='has-sub'>
+                                                <a href='#'><span>Hukukİ Çözümler</span></a>
+                                                <ul>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <li><a href="/HukukiCozumler/@BlogApp.Models.UrlNav.helper.ToSlug(item.Name)/@item.ID"><span>@item.Name</span></a></li>
+
+                                                    }
+                                                </ul>
+                                            </li>
+                                            <li class='has-sub'>
+                                                <a href='#'><span>Yargıtay Kararları</span></a>
+                                                <ul>
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <li><a href="/YargitayKararlari/@BlogApp.Models.UrlNav.helper.ToSlug(item.Name)/@item.ID"><span>@item.Name</span></a></li>
+
+                                                    }
+                                                </ul>
+                                            </li>
+                                            <li class="nav_video"><a href="/Hakkimda">Hakkımda</a></li>
+                                            <li class="nav_features"><a href="/iletisim">İletişim</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ~~~=| Mobile Navigation START |=~~~ -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ~~~=| Main Navigation END |=~~~ -->
+
+    </header>
+
+    <!-- ~~~=| Header END |=~~~ -->
+    <!-- ~~~=| Latest jQuery |=~~~ -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+
+    <!-- ~~~=| Bootstrap jQuery |=~~~ -->
+    <script src="~/scripts/Site/bootstrap.min.js"></script>
+
+    <!-- ~~~=| Opacity & Other IE fix for older browser |=~~~ -->
+    <!--[if lte IE 8]>
+            <script type="text/javascript" src="~/scripts/Site/ie-opacity-polyfill.js"></script>
+        <![endif]-->
+    <!-- ~~~=| Theme jQuery |=~~~ -->
+    <script src="~/scripts/Site/main.js"></script>
+    <script src="~/scripts/Site/main.js"></script>
+</body>

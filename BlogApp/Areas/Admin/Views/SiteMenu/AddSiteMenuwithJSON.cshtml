@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "AddSiteMenuwithJSON";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Menu Ekleme
+        <small>Preview</small>
+    </h1>
+</section>
+<section>
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="box box-primary">
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <label>Ad</label>
+                        <input type="text" id="Name" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>URL</label>
+                        <input type="text" id="Url" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Css Class</label>
+                        <input type="text" id="cssClass" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Ekle</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $("button").click(function () {
+        var sitemenu = new Object();
+        sitemenu.Name = $("#Name").val();//inputların id'sinin valuesini nesnemize göndeiryoruz,fiedların aynı olmasına dikkat ediyoruz.
+        sitemenu.Url = $("#Url").val();
+        sitemenu.cssClass = $("#cssClass").val();
+
+        $.ajax(
+            {
+                url: "/Admin/SiteMenu/AddSiteMenuJSON",//burda hangi actionumuza göndereceğimiz
+                data: sitemenu,//burda neyi göndereceğimiz, biz yukardaki nesneyi gönderiyoruz
+                type: "Post",//post ile
+                success: function () {//başarılı ise bunu yaz
+                    alert("Site Menu Eklendi")
+                }
+            }
+            )
+    })
+</script>

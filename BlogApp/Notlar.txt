@@ -1,0 +1,35 @@
+﻿23.09.2016 MVC Blog Projesinden...Ilk ders sonunda githup var
+Kullanıcı girişi önce oluşturuldu. Dikkat edilmesi unutulmaması gereken yer web config system.web içine yazılan <authentication> satırlarıdır.
+Projeye login ile başladık sonra admin işlemleri yapılacak.
+1-Attributes'te içideki Login kontrol giriş yapılmamış ise admin kontrol sayfalarına erişememsi ve onu login sayfasına yönlendirmesi içindir. Metot atribute olarak home controllerda en başa yazılır ki her view talebinde bunu denetlesin.
+2-Base controller'da her controlerda db olarak context almak yerine basede tanımlayıp diğer kontrollerlarda öyle kullanacağız. CategoryVM ise sadece view içindir.
+
+--Yöntemler
+1-Kategoride Javascript,jquery ile silme işlemi yapıldı.
+2-Bundle config kullanıldı. Bunun için referance olarak system.web.optimization eklendi App_Start klasta olusturuldu. Bu bundle Global.asax.cs içinde tetiklendi.
+
+**Site Menu
+3-ADDSiteMenu'de json ile sayfa post olmadan insert işlemi ayrıca var.
+
+**BlogPost
+4- CK editör kullanıldı bunun için sitesinden ASP uygun olanı indirdik ve samples içindeki ckeditor dosyasını projemize aldık. Kullanma esnasında html engeli için validateinput kapatılamsı gerek ve aynı zamanda viewdada html.raw ile görüntülenmeli ki html elementelri string olarak göüntülenmesin.
+5-SiteBlogController'da LatestPost actionu oluşturuldu. Bunla 2 saat harcandı doğru kullanımı buldum. Kullanıldıgı yer Site blog index'te
+
+6-**helper
+Model/UrlNav içinde helper clası ftp'de yayından sonra eklendi. Postların urlleri title içeriyordu. Boşlukları ve ş ü gibi harflerin sadeleştirmesini sagladı. daha düzgün url FOR!
+
+________________________________________
+SİGNALR-Proje 4'te
+BundleConfig Proje 6'da dk30
+Proje 6 dk 48 ELMAH hata loglama aracı ile çalışıldı
+
+________________________________________________________________________________________________________________________________________________________
+27.08.2016 Çağatay Yıldız MVC blog projesinden notlardır....
+Yakın kampüs'ten Angular ve SignalR derslerine bak.
+Yakın kampüs jquery dersleri
+*Ajax ile silme işlemi çalışmıyor ve ADD işlemlerinde model boş gittiğinden düzeltme gerek(categoryADD calısıyor) -OK
+*Postlar yeniden eskiye sıralanacak-OK
+*Tüm admin controllere Loginkontrol eklenecek-OK
+*Layout footer düzeltilecek-OK
+*Add blogpost resim ekleme multiple olacak şekilde...birden fazla resim olacak-İPTAL
+*Bundle çalışmıyor silme işlemi ondan kaynaklı olabilir-OK

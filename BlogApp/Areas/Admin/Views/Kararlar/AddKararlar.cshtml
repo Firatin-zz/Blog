@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "AddKararlar";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Karar Ekleme
+        <small>Preview</small>
+    </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-8">
+            @Html.Partial("/Areas/Admin/Views/Shared/Partial/FormMessagesPart.cshtml")
+
+
+            <script src="~/scripts/ckeditor/ckeditor.js"></script>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Quick Example</h3>
+                </div>
+                @using (Html.BeginForm("AddKararlar", "Kararlar"))
+                {
+                    @Html.Partial("Partial/KararlarForm")
+                }
+            </div>
+        </div>
+    </div>
+</section>
